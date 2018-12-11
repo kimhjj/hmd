@@ -1,0 +1,4 @@
+rootProject.name = 'hmd'
+
+include 'hmd-block-admin'
+include 'hmd-block-user'
