@@ -20,7 +20,12 @@ subprojects {
 
     group = 'hmd'
     version = '0.0.1-SNAPSHOT'
-    sourceCompatibility = 1.8
+
+    compileJava {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    compileJava.options.encoding = 'UTF-8'
 
     repositories {
         mavenCentral()
@@ -28,22 +33,9 @@ subprojects {
         maven { url "https://repo.spring.io/milestone" }
     }
 
-    task initSourceFolders {
-        sourceSets*.java.srcDirs*.each {
-            if( !it.exists() ) {
-                it.mkdirs()
-            }
-        }
-
-        sourceSets*.resources.srcDirs*.each {
-            if( !it.exists() ) {
-                it.mkdirs()
-            }
-        }
-    }
-
     dependencies {
         compile('org.springframework.boot:spring-boot-starter-web')
+        compileOnly('org.projectlombok:lombok')
         testCompile('org.springframework.boot:spring-boot-starter-test')
     }
 }

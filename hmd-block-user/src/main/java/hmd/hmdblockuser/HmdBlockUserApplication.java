@@ -2,12 +2,19 @@ package hmd.hmdblockuser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class HmdBlockUserApplication {
+public class HmdBlockUserApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         System.out.println("user");
         SpringApplication.run(HmdBlockUserApplication.class, args);
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(HmdBlockUserApplication.class);
     }
 }
